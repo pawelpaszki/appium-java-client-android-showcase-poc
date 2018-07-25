@@ -14,7 +14,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 public class Config {
 	public static AndroidDriver<AndroidElement> getCapabilities() throws MalformedURLException {
 		File file = new File("src");
-		File appFile = new File(file, "ApiDemos-debug.apk"); // app name
+		File appFile = new File(file, "24_07_keycloak_notes_services.apk"); // app name
 		
 		DesiredCapabilities dCaps = new DesiredCapabilities();
 		dCaps.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Simulator"); // replace with "Android Device" to run on a device
