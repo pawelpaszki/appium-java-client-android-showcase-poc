@@ -30,7 +30,7 @@ public class MenuItems {
 	public static final String MENU_TITLE = "AeroGear";
 	public static final String MENU_SUBTITLE = "aerogear.org";
 	public static final String[] NAV_HEADINGS_TOP_HALF = {"Home", "Identity Management", "Documentation", 
-			"Authentication", "SSO", "Security", "Documentation", "Device Trust", "Secure Storage", "Cert Pinning"};
+			"Authentication", "SSO", "Device Security", "Documentation", "Device Trust", "Secure Storage", "Cert Pinning"};
 	public static final String[] NAV_HEADINGS_BOTTOM_HALF = {"Push Notifications", "Documentation", "Push Messages",
 			"Metrics", "Documentation", "Device Profile Info", "Trust Check Info"};
 }

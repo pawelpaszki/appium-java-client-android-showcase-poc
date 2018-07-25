@@ -36,11 +36,11 @@ public class MenuItemsTest {
 		assertTrue(menuItems.menuSubtitle.isDisplayed());
 		// before the menu scroll
 		for (int i = 0; i < MenuItems.NAV_HEADINGS_TOP_HALF.length; i++) {
-			assertTrue(menuItems.navItems.get(i).getText().equals(MenuItems.NAV_HEADINGS_TOP_HALF[i]));;
+			assertTrue(menuItems.navItems.get(i).getText().contains(MenuItems.NAV_HEADINGS_TOP_HALF[i]));;
 		}
-		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Trust Check Info\"));");
+		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"  Trust Check Info\"));");
 		for (int i = MenuItems.NAV_HEADINGS_BOTTOM_HALF.length - 1, j = menuItems.navItems.size() - 1; i >= 0 ; i--, j--) {
-			assertTrue(menuItems.navItems.get(j).getText().equals(MenuItems.NAV_HEADINGS_BOTTOM_HALF[i]));;
+			assertTrue(menuItems.navItems.get(j).getText().contains(MenuItems.NAV_HEADINGS_BOTTOM_HALF[i]));;
 		}
 		
 		

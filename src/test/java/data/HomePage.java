@@ -32,5 +32,5 @@ public class HomePage {
 			+ "backed by OpenShift to perform a wide range of common mobile tasks such as Identity Management, "
 			+ "Device Security, Metrics Capture, Push Notifications and more.";
 	
-	public static final String HOME_TOOLBAR_TEXT = "AeroGear Android Showcase";
+	public static final String HOME_TOOLBAR_TEXT = "Home";
 }
