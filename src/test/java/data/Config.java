@@ -19,7 +19,7 @@ public class Config {
 		DesiredCapabilities dCaps = new DesiredCapabilities();
 		dCaps.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Simulator"); // replace with "Android Device" to run on a device
 		dCaps.setCapability(MobileCapabilityType.APP, appFile.getAbsolutePath());
-		
+		//dCaps.setCapability(MobileCapabilityType.FULL_RESET, true); // re-install the app before executing  
 		
 		// uiautomator2 added due to problems with sending keys -> instead of desired text
 		// the content of the clipboard was sent to EditText
