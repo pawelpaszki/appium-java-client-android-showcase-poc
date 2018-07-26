@@ -32,6 +32,9 @@ As this is a POC, not all of the concepts are polished. The following needs atte
 - without PIN set on an emulator, warning will also be shown and may break the tests
 - in src/test/java/data/AuthPage.java you need to provide values for USERNAME and PASSWORD constants
 - it may occur that the tests will fail some time, even though they usually pass - this still needs to be investigated
+- make sure that if you are running the tests, the old version of Android Showcase Application is removed from your emulator. This can also be achieved by uncommenting the following line in src/test/java/data/Config.java:
+
+```//dCaps.setCapability(MobileCapabilityType.FULL_RESET, true); // re-install the app before executing ```
 
 ## To run the tests from Eclipse:
 
