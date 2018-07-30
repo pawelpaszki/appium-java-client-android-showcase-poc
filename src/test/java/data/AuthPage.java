@@ -30,4 +30,5 @@ public class AuthPage {
 	
 	public static final String USERNAME = "";
 	public static final String PASSWORD = "";
+	public static final String LOGOUT_TEXT = "Logout";
 }
