@@ -6,10 +6,12 @@ import java.net.MalformedURLException;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import data.AuthPage;
+import data.ChromeWelcomePage;
 import data.Config;
 import data.HomePage;
 import data.MenuItems;
@@ -22,6 +24,7 @@ public class AuthE2Etest {
 	private HomePage homePage;
 	private MenuItems menuItems;
 	private AuthPage authPage;
+	private ChromeWelcomePage chromePage;
 
 	@Before
 	public void init() throws MalformedURLException {
@@ -29,17 +32,34 @@ public class AuthE2Etest {
 		homePage = new HomePage(driver);
 		menuItems = new MenuItems(driver);
 		authPage = new AuthPage(driver);
+		chromePage = new ChromeWelcomePage(driver);
 	}
 	
 	@Test
 	public void authE2E() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOf(homePage.openMenuButton));
 		homePage.openMenuButton.click();
 		wait.until(ExpectedConditions.visibilityOf(menuItems.navItems.get(3)));	
 		menuItems.navItems.get(3).click();
 		assertTrue(authPage.authButton.isDisplayed());
 		authPage.authButton.click();
+		try {
+			wait.until(ExpectedConditions.visibilityOf(chromePage.acceptButton));
+			if(chromePage.acceptButton.isDisplayed()) {
+				chromePage.acceptButton.click();
+			}
+			wait.until(ExpectedConditions.visibilityOf(chromePage.declineSignInButton));
+			if(chromePage.declineSignInButton.isDisplayed()) {
+				chromePage.declineSignInButton.click();
+			}
+			wait.until(ExpectedConditions.visibilityOf(chromePage.cancelWarningButton));
+			if(chromePage.cancelWarningButton.isDisplayed()) {
+				chromePage.cancelWarningButton.click();
+			}
+		} catch (TimeoutException e) {
+			// ignore
+		}
 		wait.until(ExpectedConditions.visibilityOf(authPage.usernameTextField));
 		assertTrue(authPage.usernameTextField.isDisplayed());
 		authPage.usernameTextField.clear();
